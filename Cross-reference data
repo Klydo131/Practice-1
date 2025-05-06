@@ -1,0 +1,47 @@
+# prompt: Make a cross reference data in python
+
+import networkx as nx
+import matplotlib.pyplot as plt
+
+def cross_reference_data(data):
+    """
+    Generates a cross-reference of data.  This example uses NetworkX
+    to visualize relationships but could be adapted to other output methods.
+
+    Args:
+        data: A list of tuples, where each tuple represents a relationship 
+              between two data points.
+
+    Returns:
+        A NetworkX graph object.  Also displays the graph.
+    """
+
+    graph = nx.Graph()
+    for item1, item2 in data:
+        graph.add_edge(item1, item2)
+
+    pos = nx.spring_layout(graph) # You can experiment with different layouts
+    nx.draw(graph, pos, with_labels=True, node_size=500, node_color='skyblue')
+    plt.title('Cross-Reference Data')
+    plt.show()
+
+    return graph
+
+
+# Example usage (replace with your actual data)
+data_relationships = [
+    ('A', 'B'),
+    ('A', 'C'),
+    ('B', 'D'),
+    ('C', 'E'),
+    ('D', 'E'),
+    ('E', 'F')
+]
+
+
+cross_ref_graph = cross_reference_data(data_relationships)
+
+#You can now analyze the graph using NetworkX functions
+# For example, to find the shortest path:
+
+#print(nx.shortest_path(cross_ref_graph, source='A', target='F'))
