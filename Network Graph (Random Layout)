@@ -1,0 +1,20 @@
+import networkx as nx
+import matplotlib.pyplot as plt
+
+# Create a cycle graph with 10 nodes
+G = nx.cycle_graph(10)
+
+# Use a completely different layout algorithm
+pos = nx.random_layout(G)  # Random layout
+
+# Draw the graph
+nx.draw(G, pos, with_labels=True, node_size=300, node_color='skyblue')
+plt.title('Network Graph with Random Layout')
+plt.show()
+
+# Try another alternative layout
+plt.figure()
+pos = nx.shell_layout(G)  # Shell layout
+nx.draw(G, pos, with_labels=True, node_size=300, node_color='skyblue')
+plt.title('Network Graph with Shell Layout')
+plt.show()
