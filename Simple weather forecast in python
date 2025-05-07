@@ -1,0 +1,22 @@
+import random
+
+def forecast_weather(location, days):
+  """
+  Simulates a weather forecast.
+
+  Args:
+    location: The location for the forecast.
+    days: The number of days to forecast.
+  """
+
+  print(f"Weather forecast for {location}:")
+  for day in range(1, days + 1):
+    temperature = random.randint(15, 30)  # Random temperature between 15 and 30 degrees
+    conditions = random.choice(["Sunny", "Cloudy", "Rainy", "Windy"])
+    print(f"Day {day}: Temperature: {temperature}°C, Conditions: {conditions}")
+
+
+# Example usage
+location = "New York"
+days = 5
+forecast_weather(location, days)
