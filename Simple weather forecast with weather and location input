@@ -1,0 +1,20 @@
+import random
+
+def weather_forecast(location, days):
+
+  #print(f "Weather forecast for {'locaiton':}") prints the weather forecast followed by the location parameter
+  print(f"Weather forecast for {'locaiton':}")
+  
+  #""for day in range(1,days +1):"" is a sequence of numbers starting from 1 going up(but not including) days + 1:
+  #Example would be if days is 7, range (1,8) will generate 1,2,3,4,5,6,7
+  #For each number (represents each day), the code inside the loop will be executed. The current day is assigned to the variable "day"
+
+  for day in range(1,days +1):
+    temperature = random.randint(15,30)# generates random number 15,30
+    conditions = random.choice(["Sunny", "Cloudy", "Rainy", "Windy"])# generates random weather choices
+    print(f"Day{day}: Temperature:{temperature}°C,Weather:{conditions}")
+        
+
+location = input("Enter location: ")
+days = int(input("Enter number of days: "))
+weather_forecast(location, days)
